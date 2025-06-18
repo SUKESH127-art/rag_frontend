@@ -6,9 +6,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { getSessionId } from "@/lib/getUserId";
 import Link from "next/link";
-import { Code, FileText, Globe, Home, User, Video } from "lucide-react";
+import { Code, FileText, Home, User, Video } from "lucide-react";
 import dynamic from "next/dynamic";
-import getApiUrl from "@/lib/getAPIClient";
+import ApiUrlDisplay from "@/components/app/apiUrlDisplay";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -37,9 +37,7 @@ function InnerLayout({
 					<div className="bg-slate-300 p-1 rounded-sm text-slate-600 flex">
 						<User className="my-auto mr-2 h-4 w-4" /> {truncatedUserId}
 					</div>
-					<div className="bg-slate-300 p-1 rounded-sm text-slate-600 flex">
-						<Globe className="my-auto mr-2 h-4 w-4" /> {getApiUrl()}
-					</div>
+					<ApiUrlDisplay />
 				</div>
 			</header>
 			<div className="z-10 w-full max-w-3xl flex flex-col gap-4 items-center justify-between">
